@@ -1,0 +1,11 @@
+.genre {
+    padding: 10px 20px;
+    border: 2px solid #eee;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: lightcoral;
+    color: white;
+}

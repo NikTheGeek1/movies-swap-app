@@ -1,0 +1,1 @@
+dropdb movies-swap && createdb movies-swap && psql -d movies-swap -f db/movies-swap.sql
