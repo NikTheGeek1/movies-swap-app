@@ -9,6 +9,7 @@ import LoginPage from './components/Login/Login';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 
 import { useStore } from './hooks-store/store';
+import './App.css';
 
 configureStoreUserCredential();
 configureStoreFilters();

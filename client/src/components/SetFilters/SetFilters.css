@@ -1,0 +1,28 @@
+.filters-main-container {
+   display: grid; 
+   grid-template-areas: 
+   "genres"
+   "slider-years"
+   "slider-scores";
+   row-gap: 2rem;
+}
+.slider-years {
+    grid-area: slider-years;
+    width: 19rem;
+    justify-self: center;
+    padding: 0 1rem;
+}
+
+.slider-scores {
+    grid-area: slider-scores;
+    width: 19rem;
+    justify-self: center;
+    padding: 0 1rem;
+}
+
+.slider-label {
+    display: block;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: 5px;
+}

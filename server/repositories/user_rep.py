@@ -190,3 +190,29 @@ class UserRep:
 
             friends.append({'name': name, 'email': email, 'id': id})
         return friends
+
+    def get_friend(self, user_id, friend_id):
+        friend = None
+        sql = """
+        SELECT befriended.* FROM users AS befriended
+        INNER JOIN friendships ON befriended.id = friendships.befriended_id
+        INNER JOIN users AS friend ON friendships.user_id = friend.id
+        WHERE friend.id = %s AND befriended.id = %s
+        """
+        values = [user_id, friend_id]
+        results = run_sql(sql, values)
+
+        if results is not None:
+            if len(results) == 1:
+                result = results[0]
+                name = result['name']
+                email = result['email']
+                id = result['id']
+                liked_movies = self.get_liked_movies_array(friend_id)
+                seen_movies = self.get_seen_movies_array(friend_id)
+                disliked_movies = self.get_disliked_movies_array(friend_id)
+                friend = {'name': name, 'email': email, 'id': id, 'movies' : {'liked_movies': liked_movies, 'disliked_movies': disliked_movies, 'seen_movies': seen_movies}}
+            else:
+                print('results are more than 1 in user_rep.py get_friend')
+        
+        return friend

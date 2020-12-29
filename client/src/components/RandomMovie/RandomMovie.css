@@ -1,0 +1,68 @@
+.mv-item {
+    display: grid;
+    grid-template-columns: min-content;
+    justify-self: center;
+}  
+
+.mv-item-inner {
+    display: grid;
+    grid-template-areas: 
+    "mv-title-main mv-title-main mv-title-main mv-title-main mv-title-main mv-title-main mv-date-main ."
+    "mv-duration-main mv-genre-main mv-genre-main mv-genre-main mv-genre-main mv-score-main . ."
+    "mv-img-main mv-img-main mv-img-main mv-img-main mv-img-main mv-img-main mv-img-main mv-img-main"
+    "mv-details-main mv-details-main mv-details-main mv-details-main mv-details-main mv-details-main mv-details-main mv-details-main"
+    "mv-director-main mv-director-main mv-director-main mv-director-main mv-director-main mv-director-main mv-director-main mv-director-main"
+    "mv-writer-main mv-writer-main mv-writer-main mv-writer-main mv-writer-main mv-writer-main mv-writer-main mv-writer-main"
+    "mv-stars-main mv-stars-main mv-stars-main mv-stars-main mv-stars-main mv-stars-main mv-stars-main mv-stars-main";
+    grid-template-rows: repeat(7, min-content);
+
+}   
+
+.mv-img-main {
+    width: 30rem;
+}
+
+.mv-title-main {
+    grid-area: mv-title-main;
+    font-size: var(--larger-font-size);
+}
+
+.mv-date-main {
+    grid-area: mv-date-main;
+}
+
+.mv-duration-main {
+    grid-area: mv-duration-main;
+    font-size: var(--smaller-font-size);
+}
+
+.mv-genre-main {
+    grid-area: mv-genre-main;
+    font-size: var(--smaller-font-size);
+}
+
+.mv-score-main {
+    grid-area: mv-score-main;
+    font-size: var(--smaller-font-size);
+}
+
+.mv-img-main {
+    grid-area: mv-img-main;
+    justify-self: center;
+}
+
+.mv-details-main {
+    grid-area: mv-details-main;
+}
+
+.mv-director-main {
+    grid-area: mv-director-main;
+}
+
+.mv-writer-main {
+    grid-area: mv-writer-main;
+}
+
+.mv-stars-main {
+    grid-area: mv-stars-main;
+}

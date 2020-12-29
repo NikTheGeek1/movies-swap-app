@@ -22,8 +22,8 @@ const SetFilters = () => {
 
 
     return (
-        <div>
-            <div style={{width: 400}}>
+        <div className="filters-main-container">
+            <div className="slider-years">
                 <Nouislider
                     id="year-slide"
                     step={1}
@@ -36,10 +36,10 @@ const SetFilters = () => {
                     }}
                     onChange={yearHandler}
                 />
-                <label htmlFor="year-slide">{state.years.from} - {state.years.to}</label>
+                <label className="slider-label" htmlFor="year-slide">Years: {state.years.from} - {state.years.to}</label>
             </div>
             
-            <div style={{width: 400}}>
+            <div className="slider-scores">
                 <Nouislider
                     id="score-slide"
                     step={.1}
@@ -52,7 +52,7 @@ const SetFilters = () => {
                     }}
                     onChange={scoreHandler}
                 />
-                <label htmlFor="score-slide">{state.scores.from} - {state.scores.to}</label>
+                <label className="slider-label" htmlFor="score-slide">Score: {state.scores.from} - {state.scores.to}</label>
             </div>
             <Genres onSetGenres={setGenresHandler} genres={state.genres}/>
         </div>

@@ -1,19 +1,22 @@
-export const chooseMovie = (genresMovies, seenMovies, likedMovies, dislikedMovies, filters) => {
-    const genresMoviesCopied = [...genresMovies];
-    const genres = genresMoviesCopied.shift().genres;
+export const chooseMovie = (movies, genres, seenMovies, likedMovies, dislikedMovies, filters) => {
+    const genresMoviesCopied = [...movies];
     const pages = genresMoviesCopied;
     let chosenMovie;
     for (const page of pages) {
         const results = page.results.find(movie => {
+            try {
+                return (
+                    isNotLiked(movie.id, likedMovies) &&
+                    isNotDisliked(movie.id, dislikedMovies) &&
+                    isNotSeen(movie.id, seenMovies) &&
+                    inYearRange(movie, filters.years) && 
+                    hasGenre(movie, filters.genres, genres) && 
+                    inScoreRange(movie, filters.scores)
+                );
+            } catch (error) {
+                return false;
+            }
             
-            return (
-                isNotLiked(movie.id, likedMovies) &&
-                isNotDisliked(movie.id, dislikedMovies) &&
-                isNotSeen(movie.id, seenMovies) &&
-                inYearRange(movie, filters.years) && 
-                hasGenre(movie, filters.genres, genres) && 
-                inScoreRange(movie, filters.scores)
-            );
         });
         if (results) {
             chosenMovie = results;

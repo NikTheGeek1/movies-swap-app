@@ -25,6 +25,9 @@ def add_friend():
     if friend is None:
         return dumps({"success": False, 'message': 'There is no user with this email.'}), 400, {'Content-type': 'application/json'}
     user = UserRep().select(user_id)
+    # check if user and friend are not the same person
+    if friend.id == user_id:
+        return dumps({"success": False, 'message': 'How lonely are you? You can\'t add yourself as a friend.'}), 400, {'Content-type': 'application/json'}
     # check if they are already friends
     are_friends = FriendshipRep().select_by_friend_id_and_user_id(friend.id, user_id)
     if are_friends is not None:
@@ -42,3 +45,13 @@ def remove_friend():
     FriendshipRep().delete_by_friend_id_and_user_id(friend_id, user_id)
     friends = UserRep().get_friends(user_id)
     return dumps({"success": True, 'friends': friends}), 200, {'Content-type': 'application/json'}
+
+@user_friends_blueprint.route("/api/get-friends/<user_id>/<friend_id>")
+def get_friend(user_id, friend_id):
+    if user_id == 'null': 
+        return dumps({"success": False, 'message': 'User is null in user_movies.py'}), 400, {'Content-type': 'application/json'}
+    if friend_id == 'null':
+        return dumps({"success": False, 'message': 'Friend is null in user_movies.py'}), 400, {'Content-type': 'application/json'}
+
+    friend = UserRep().get_friend(user_id, friend_id)
+    return dumps({"success": True, 'friend': friend}), 200, {'Content-type': 'application/json'}

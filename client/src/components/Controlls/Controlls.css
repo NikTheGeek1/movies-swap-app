@@ -1,0 +1,24 @@
+.controlls-container {
+    justify-self: center;
+    display: grid;
+    column-gap: 2rem;
+    grid-auto-flow: column;
+}
+
+.nope-btn {
+    cursor: pointer;
+    font-size: var(--largest-font-size);
+}
+
+.seen-btn {
+    cursor: pointer;
+    background-color: var(--colour-primary);
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    border: 2px solid var(--colour-white);
+}
+
+.like-btn {
+    cursor: pointer;
+    font-size: var(--largest-font-size);
+}

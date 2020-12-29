@@ -1,0 +1,23 @@
+.friends-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.friends-list-container {
+    
+}
+
+.friends-list {
+    list-style: none;
+    overflow-y: scroll;
+}
+
+.synced-friends-list {
+    list-style: none;
+}
+
+.synced-friends-container {
+    grid-area: synced-friends;
+}

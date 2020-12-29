@@ -13,7 +13,7 @@ const Genres = ({ onSetGenres, genres }) => {
     });
 
     return (
-        <div>
+        <div className="genres-filters">
             {genresJSX}
         </div>
     );

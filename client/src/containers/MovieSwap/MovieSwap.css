@@ -1,0 +1,70 @@
+.container {
+    min-height: 100vh;
+    background-color: var(--colour-main-bg);
+    background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5));
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+    grid-template-rows: min-content 1fr min-content;
+}
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: ". logo logout-btn";
+}
+
+.logout-button {
+    padding: 5px 10px;
+    border-left: 2px solid var(--colour-primary);
+    border-right: 2px solid var(--colour-primary);
+    border-bottom: 2px solid var(--colour-primary);
+    background-color: var(--colour-quaternary);
+    color: var(--colour-white);
+    justify-self: end;
+    grid-area: logout-btn;
+}
+
+.logo {
+    grid-area: logo;
+    justify-self: center;
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: "filters-main movie-main friends-main";
+    grid-template-columns: 20rem 1fr 20rem;
+    column-gap: 2rem;
+}
+
+.filters-main {
+    grid-area: filters-main;
+}
+
+.movie-main {
+    grid-area: movie-main;
+    display: grid;
+    grid-template-areas: 
+    "movie-item"
+    "movie-controls";
+    grid-template-rows: 1fr min-content;
+}
+
+.friends-main {
+    grid-area: friends-main;
+}
+
+.footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-areas: "likes-seen-disliked-movies synced-friends";
+}
+
+
+.likes-seen-disliked-movies-container {
+    grid-area: likes-seen-disliked-movies;
+}

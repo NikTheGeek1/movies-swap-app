@@ -19,10 +19,10 @@ const Controlls = ({ movieId, userId }) => {
     };
 
     return (
-        <div>
-            <button onClick={nopeHandler}>Nope</button>
-            <button onClick={seenHandler}>I've watched</button>
-            <button onClick={likedHandler}>Like</button>
+        <div className="controlls-container">
+            <div className="nope-btn" onClick={nopeHandler}>❌</div>
+            <div className="seen-btn" onClick={seenHandler}>I've watched</div>
+            <div className="like-btn" onClick={likedHandler}>✅</div>
         </div>
     );
 };

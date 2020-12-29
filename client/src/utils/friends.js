@@ -34,5 +34,14 @@ export const removeFriend = (friendId, userId, cb) => {
             cb(data);
         })
         .catch(err => console.log(err));
-
 };
+
+
+export const fetchFriendWithMovies = (userId, friendId, cb) => {
+    fetch(`http://localhost:5000/api/get-friends/${userId}/${friendId}`).then(res => res.json())
+        .then(data => {
+            cb(data);
+        })
+        .catch(err => console.log(err));
+};
+
