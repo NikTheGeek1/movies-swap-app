@@ -4,6 +4,7 @@ import { fetchSpecificMovies } from '../../utils/fetchMovies';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { removeMovie } from '../../utils/remove-movies-backend';
+import SmallMovie from '../SmallMovie/SmallMovie';
 
 const ListMovies = ({ movies, type, userId }) => {
     const dispatch = useStore()[1];
@@ -18,28 +19,22 @@ const ListMovies = ({ movies, type, userId }) => {
     const removeMovieFromListHandler = movieId => {
         removeMovie(type, movieId, userId, () => dispatch('REMOVE_MOVIE', {type: type+'Movies', movieId: movieId}) );
     };
+
     let listItems = <p>Please wait</p>;
     if (fetchedMovies.length) {
         listItems = fetchedMovies.map(movie => {
             return (
-                <li key={movie.id}>
-                    {movie.original_title}
-                    <div
-                        onClick={() => removeMovieFromListHandler(movie.id)}
-                        style={{ display: 'inline-block', color: 'red', cursor: 'pointer' }}>
-                        &nbsp;x
-                        </div>
-                </li>
+                <SmallMovie key={movie.id} movie={movie} onRemoveMovie={removeMovieFromListHandler}/>
             );
         });
     }
 
     return (
         <>
-            <Link to="/movie-swap">Hide</Link>
-            <ul>
+            <ul className="small-mvs-list">
                 {listItems}
             </ul>
+            <Link className="link-to-hide-movies" to="/movie-swap">Hide</Link>
         </>
     );
 };

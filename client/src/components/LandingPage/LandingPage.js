@@ -5,7 +5,7 @@ import './LandingPage.css';
 const LandingPage = props => {
 
     return (
-        <main>
+        <main className="landing-page-main">
             <SignupForm />
         </main>
     );

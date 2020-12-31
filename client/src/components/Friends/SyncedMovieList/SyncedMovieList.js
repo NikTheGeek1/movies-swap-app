@@ -20,11 +20,9 @@ const SyncedMovieList = ({ syncedFriends }) => {
         );
     });
     return (
-        <div>
-            <ul>
+            <ul className="synced-movies-list">
                 {commonMoviesJSX}
             </ul>
-        </div>
     );
 };
 

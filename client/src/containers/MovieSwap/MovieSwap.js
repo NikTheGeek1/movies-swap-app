@@ -3,13 +3,13 @@ import { useStore } from '../../hooks-store/store';
 import './MovieSwap.css';
 import RandomMovie from '../../components/RandomMovie/RandomMovie';
 import Controlls from '../../components/Controlls/Controlls';
-import ListMovies from '../../components/ListMovies/ListMovies';
 import { fetchAllMovies, fetchAllGenres } from '../../utils/fetchMovies';
 import { chooseMovie } from '../../utils/chooseMovie';
 import { useEffect, useState } from 'react';
 import { fetchUserMovies } from '../../utils/fetchUserMovies';
-import { Link, Route } from 'react-router-dom';
 import Friends from '../../components/Friends/Friends';
+import SyncedFriends from '../../components/Friends/SyncedFriends/SyncedFriends';
+import LikesSeenDislikedMovies from '../../components/LikesSeenDislikedMovies/LikesSeenDislikedMovies';
 
 const MovieSwap = () => {
     const [globalState, dispatch] = useStore();
@@ -70,29 +70,8 @@ const MovieSwap = () => {
                 </div>
             </div>
             <div className="footer">
-                <div className="likes-seen-disliked-movies-container">
-                    <Link to="/movie-swap/liked-movies">Liked movies</Link>
-                    <Link to="/movie-swap/disliked-movies">Disliked movies</Link>
-                    <Link to="/movie-swap/seen-movies">Seen movies</Link>
-                    {globalState.movies && <Route
-                        path="/movie-swap/liked-movies"
-                        render={() => <ListMovies type="liked" movies={globalState.movies.likedMovies} userId={globalState.userId}
-                        />}
-                    />}
-                    {globalState.movies && <Route
-                        path="/movie-swap/disliked-movies"
-                        render={() => <ListMovies type="disliked" movies={globalState.movies.dislikedMovies} userId={globalState.userId}
-                        />}
-                    />}
-                    {globalState.movies && <Route
-                        path="/movie-swap/seen-movies"
-                        render={() => <ListMovies type="seen" movies={globalState.movies.seenMovies} userId={globalState.userId}
-                        />}
-                    />}
-                </div>
-                <div className="synced-friends">
-
-                </div>
+                <LikesSeenDislikedMovies />
+                <SyncedFriends />
             </div>
         </div>
     );

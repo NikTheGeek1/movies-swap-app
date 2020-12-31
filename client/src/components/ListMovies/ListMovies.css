@@ -1,0 +1,9 @@
+.link-to-hide-movies {
+    text-transform: uppercase;
+    color: var(--colour-white);
+}
+
+.small-mvs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+}

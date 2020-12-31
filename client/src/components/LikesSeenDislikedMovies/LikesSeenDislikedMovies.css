@@ -1,0 +1,22 @@
+.likes-seen-disliked-movies-container {
+    display: grid;
+    grid-template-areas: "movie-links" "movie-links-results";
+    grid-template-rows: min-content 20rem;
+    grid-template-columns: 1fr;
+}
+
+.movie-links-container {
+    grid-area: movie-links;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.movie-link {
+    color: white;
+}
+
+.movie-links-results {
+    grid-area: movie-links-results;
+    overflow-y: scroll;
+}

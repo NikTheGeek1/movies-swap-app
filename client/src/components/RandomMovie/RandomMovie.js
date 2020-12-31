@@ -28,9 +28,9 @@ const RandomMovie = ({ movie }) => {
         <div className="mv-item">
             <div className="mv-item-inner">
                 <h2 className="mv-title-main">{movie.original_title} <span>({movie.release_date.slice(0, 4)})</span></h2>
-                <span className="mv-duration-main">{mvDetails.runtime}m</span>
+                <span className="mv-duration-main">{mvDetails.runtime}m&nbsp;|</span>
                 <span className="mv-genre-main">{mvGenres}</span>
-                <span className="mv-score-main">{mvDetails.vote_average}★</span>
+                <span className="mv-score-main">|&nbsp;{mvDetails.vote_average}★</span>
                 <img className="mv-img-main" src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="" />
                 <span className="mv-details-main"> <hr/> {mvDetails.overview}</span>
                 <span className="mv-director-main"> <hr/> <b>Director</b>(s): {credits.directors}</span>

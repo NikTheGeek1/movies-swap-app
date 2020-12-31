@@ -3,12 +3,10 @@ import './Friends.css';
 import { fetchFriends, removeFriend, fetchFriendWithMovies } from '../../utils/friends';
 import { useStore } from '../../hooks-store/store';
 import AddFriend from './AddFriend/AddFriend';
-import SyncedMovieList from './SyncedMovieList/SyncedMovieList';
 
 const Friends = () => {
-    const globalState = useStore()[0];
+    const [globalState, dispatch] = useStore();
     const [friends, setFriends] = useState([]);
-    const [syncedFriends, setSyncedFriends] = useState([]);
 
     useEffect(() => {
         fetchFriends(globalState.userId, data => setFriends(data.friends));
@@ -19,19 +17,17 @@ const Friends = () => {
     };
 
     const toggleSyncWithFriendHandler = friendId => {
-        const updatedSyncedFriends = syncedFriends.filter(friend => friend.id !== friendId);
+        const updatedSyncedFriends = globalState.syncedFriends.filter(friend => friend.id !== friendId);
         // if there was the friend already synced
-        if (updatedSyncedFriends.length < syncedFriends.length) {
-            return setSyncedFriends(updatedSyncedFriends);
+        if (updatedSyncedFriends.length < globalState.syncedFriends.length) {
+            return dispatch('SET_SYNCED_FRIENDS', updatedSyncedFriends);
         }
         // else add them
         fetchFriendWithMovies(globalState.userId, friendId, data => {
             updatedSyncedFriends.push(data.friend);
-            setSyncedFriends(updatedSyncedFriends);
+            dispatch('SET_SYNCED_FRIENDS', updatedSyncedFriends);
         });
     };
-
-
 
     let friendsList = <h5>You have no friends :( Add a friend</h5>;
     if (friends.length) {
@@ -43,7 +39,7 @@ const Friends = () => {
                         onClick={() => toggleSyncWithFriendHandler(friend.id)}
                         style={{
                             display: 'inline-block',
-                            color: syncedFriends.some(syncedFriend => syncedFriend.id === friend.id) ? 'green' : 'gray',
+                            color: globalState.syncedFriends.some(syncedFriend => syncedFriend.id === friend.id) ? 'green' : 'gray',
                             cursor: 'pointer'
                         }}>
                         &nbsp;♼
@@ -58,15 +54,6 @@ const Friends = () => {
         });
     }
 
-    let syncedFriendsListJSX = [];
-    if (syncedFriends.length) {
-        syncedFriends.forEach(syncedFriend => {
-            syncedFriendsListJSX.push(
-                <li key={syncedFriend.id}>{syncedFriend.name}</li>
-            );
-        });
-
-    }
 
     return (
         <div className="friends-container">
@@ -77,12 +64,6 @@ const Friends = () => {
                 </ul>
             </div>
             <AddFriend userId={globalState.userId} onAddFriend={setFriends} />
-            <div className="synced-friends-container">
-                <ul className="synced-friends-list">You are synced with:
-                {syncedFriendsListJSX}
-                </ul>
-                {(globalState.movies && syncedFriendsListJSX) && <SyncedMovieList syncedFriends={syncedFriends} />}
-            </div>
         </div>
     );
 };

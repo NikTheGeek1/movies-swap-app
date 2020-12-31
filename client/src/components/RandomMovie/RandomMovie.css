@@ -19,7 +19,7 @@
 }   
 
 .mv-img-main {
-    width: 30rem;
+    width: 25rem;
 }
 
 .mv-title-main {
@@ -53,16 +53,23 @@
 
 .mv-details-main {
     grid-area: mv-details-main;
+    font-size: var(--smaller-font-size);
 }
 
 .mv-director-main {
     grid-area: mv-director-main;
+    font-size: var(--small-font-size);
+
 }
 
 .mv-writer-main {
     grid-area: mv-writer-main;
+    font-size: var(--small-font-size);
+
 }
 
 .mv-stars-main {
     grid-area: mv-stars-main;
+    font-size: var(--small-font-size);
+
 }

@@ -1,0 +1,38 @@
+.signup-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/src/static/img/movies-bg.jpg');
+    background-size: cover;
+    border-radius: 10rem;
+}
+
+.signup-form {
+    background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
+    display: flex;
+    flex-direction: column;
+    padding: 10rem 10rem;
+    box-shadow: 2rem 2rem 2rem 2rem rgba(0, 0, 0, .7);
+}
+
+.signup-form > input {
+    margin-bottom: 3rem;
+    padding: 1rem .3rem;
+}
+
+.signup-form > div {
+    margin-bottom: 3rem;
+    padding: 1rem .3rem;
+    cursor: pointer;
+    background-color: var(--colour-primary);
+    text-align: center;
+    border-radius: 50rem;
+}
+
+
+.signup-form > a {
+    color: white;
+    text-transform: uppercase;
+} 

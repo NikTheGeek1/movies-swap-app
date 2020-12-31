@@ -48,16 +48,16 @@ const SignupForm = props => {
     }
 
     return (
-        <>
-            <form>
+        <div className="signup-container">
+            <form className="signup-form">
                 <input required type="text" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)} />
                 <input required type="text" placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input required type="password" placeholder="PASSWORD" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button onClick={signupHandler}>SignUp</button>
+                <div onClick={signupHandler}>Signup</div>
                 <Link to="/login">Already a member? Log in here</Link>
             </form>
             {!validEmail && <p>Email already exists</p> }
-        </>
+        </div>
     );
 };
 

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import configureStoreUserCredential from './hooks-store/stores/user-credential-store';
 import configureStoreFilters from './hooks-store/stores/filters-store';
 import configureStoreMovies from './hooks-store/stores/movies-store';
+import configureStoreSyncedFriends from './hooks-store/stores/synced-friends-store';
 
 import LandingPage from './components/LandingPage/LandingPage';
 import MovieSwap from './containers/MovieSwap/MovieSwap';
@@ -14,6 +15,7 @@ import './App.css';
 configureStoreUserCredential();
 configureStoreFilters();
 configureStoreMovies();
+configureStoreSyncedFriends()
 
 function App() {
   const state = useStore()[0];

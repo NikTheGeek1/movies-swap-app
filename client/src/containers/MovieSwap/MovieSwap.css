@@ -8,6 +8,7 @@
     "main"
     "footer";
     grid-template-rows: min-content 1fr min-content;
+    row-gap: 10rem;
 }
 
 .header {
@@ -56,12 +57,14 @@
 
 .friends-main {
     grid-area: friends-main;
+    height: 70%;
 }
 
 .footer {
     grid-area: footer;
     display: grid;
     grid-template-areas: "likes-seen-disliked-movies synced-friends";
+    grid-template-columns: 50% 50%;
 }
 
 
