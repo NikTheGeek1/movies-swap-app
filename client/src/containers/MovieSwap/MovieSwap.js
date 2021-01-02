@@ -10,6 +10,7 @@ import { fetchUserMovies } from '../../utils/fetchUserMovies';
 import Friends from '../../components/Friends/Friends';
 import SyncedFriends from '../../components/Friends/SyncedFriends/SyncedFriends';
 import LikesSeenDislikedMovies from '../../components/LikesSeenDislikedMovies/LikesSeenDislikedMovies';
+import Header from '../../components/Header/Header';
 
 const MovieSwap = () => {
     const [globalState, dispatch] = useStore();
@@ -53,10 +54,7 @@ const MovieSwap = () => {
 
     return (
         <div className="container">
-            <div className="header">
-                <div className="logo">Logo</div>
-                <div className="logout-button">Logout</div>
-            </div>
+            <Header />
             <div className="main">
                 <div className="filters-main">
                     <SetFilters />

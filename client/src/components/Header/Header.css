@@ -1,0 +1,23 @@
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: ". logo logout-btn";
+    grid-template-rows: 10rem;
+}
+
+.logout-button {
+    padding: 5px 10px;
+    border-left: 2px solid var(--colour-primary);
+    border-right: 2px solid var(--colour-primary);
+    border-bottom: 2px solid var(--colour-primary);
+    border-top: 2px solid var(--colour-primary);
+    background-color: var(--colour-quaternary);
+    color: var(--colour-white);
+    justify-self: end;
+    align-self: start;
+    grid-area: logout-btn;
+    cursor: pointer;
+}
+

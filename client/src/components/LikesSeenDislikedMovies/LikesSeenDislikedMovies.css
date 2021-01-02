@@ -1,22 +1,32 @@
 .likes-seen-disliked-movies-container {
     display: grid;
-    grid-template-areas: "movie-links" "movie-links-results";
-    grid-template-rows: min-content 20rem;
-    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "liked-movies-container disliked-movies-container seen-movies-container";
+    grid-template-rows: 1fr;
+    column-gap: 2rem;
 }
 
-.movie-links-container {
-    grid-area: movie-links;
+.liked-movies-container {
+    grid-area: liked-movies-container;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
+.disliked-movies-container {
+    grid-area: disliked-movies-container;
+    display: flex;
+    flex-direction: column;
+}
+
+.seen-movies-container {
+    grid-area: seen-movies-container;
+    display: flex;
+    flex-direction: column;
+}
 
 .movie-link {
     color: white;
+    text-transform: uppercase;
+    text-align: center;
 }
 
-.movie-links-results {
-    grid-area: movie-links-results;
-    overflow-y: scroll;
-}

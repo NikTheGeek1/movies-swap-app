@@ -1,0 +1,11 @@
+.SVGIcon {
+    width: 6rem;
+    height: 6rem;
+}
+
+
+.logo-header {
+    grid-area: logo;
+    justify-self: center; 
+    align-self: end;   
+}

@@ -8,30 +8,7 @@
     "main"
     "footer";
     grid-template-rows: min-content 1fr min-content;
-    row-gap: 10rem;
-}
-
-.header {
-    grid-area: header;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: ". logo logout-btn";
-}
-
-.logout-button {
-    padding: 5px 10px;
-    border-left: 2px solid var(--colour-primary);
-    border-right: 2px solid var(--colour-primary);
-    border-bottom: 2px solid var(--colour-primary);
-    background-color: var(--colour-quaternary);
-    color: var(--colour-white);
-    justify-self: end;
-    grid-area: logout-btn;
-}
-
-.logo {
-    grid-area: logo;
-    justify-self: center;
+    row-gap: 5rem;
 }
 
 .main {

@@ -1,3 +1,7 @@
 .synced-friends-container {
     justify-self: center;
 }
+
+.synced-friends-list {
+    display: flex;
+}

@@ -1,10 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useStore } from '../../../hooks-store/store';
+import { fetchSpecificMovies } from '../../../utils/fetchMovies'
+import SmallMovie from '../../SmallMovie/SmallMovie';
 import './SyncedMovieList.css';
 
 const SyncedMovieList = ({ syncedFriends }) => {
     const globalState = useStore()[0];
     const [commonMovies, setCommonMovies] = useState([]);
+    const [fetchedMovies, setFetchedMovies] = useState([]);
+
+    useEffect(() => {
+        if (commonMovies.length) {
+            fetchSpecificMovies(commonMovies, data => setFetchedMovies(data));
+        }
+    }, [commonMovies]);
+
 
 
     useEffect(() => {
@@ -14,11 +24,15 @@ const SyncedMovieList = ({ syncedFriends }) => {
         setCommonMovies(updatedCommonMovies);
     }, [syncedFriends]);
 
-    const commonMoviesJSX = commonMovies.map(commonMovie => {
-        return (
-            <li key={commonMovie}>{commonMovie}</li>
-        );
-    });
+    let commonMoviesJSX;
+    if (fetchedMovies.length) {
+        commonMoviesJSX = fetchedMovies.map(movie => {
+            return (
+                <SmallMovie key={movie.id} movie={movie} onRemoveMovie={false}/>
+            );
+        });
+    }
+
     return (
             <ul className="synced-movies-list">
                 {commonMoviesJSX}

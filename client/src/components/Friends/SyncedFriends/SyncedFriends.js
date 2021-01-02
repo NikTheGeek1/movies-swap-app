@@ -10,17 +10,17 @@ const SyncedFriends = () => {
     if (globalState.syncedFriends.length) {
         globalState.syncedFriends.forEach(syncedFriend => {
             syncedFriendsListJSX.push(
-                <li key={syncedFriend.id}>{syncedFriend.name}</li>
+                <li key={syncedFriend.id}>&nbsp;{syncedFriend.name},</li>
             );
         });
 
     }
     return (
         <div className="synced-friends-container">
-            <ul className="synced-friends-list">Sinced Friends
+            <ul className="synced-friends-list">Sinced Friend(s): 
                 {syncedFriendsListJSX}
             </ul>
-            {(globalState.movies && syncedFriendsListJSX) && <SyncedMovieList syncedFriends={globalState.syncedFriends} />}
+            {(globalState.movies && !!syncedFriendsListJSX.length) && <SyncedMovieList syncedFriends={globalState.syncedFriends} />}
         </div>
     );
 };
