@@ -26,7 +26,8 @@ const AddFriend = ({ userId, onAddFriend }) => {
         <div>
             <label htmlFor="add-friend">Add a friend: </label>
             <input
-                type="text"
+                required
+                type="email"
                 id="add-friend"
                 placeholder="Email"
                 value={email}

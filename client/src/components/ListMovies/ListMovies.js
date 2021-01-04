@@ -19,7 +19,7 @@ const ListMovies = ({ movies, type, userId }) => {
         removeMovie(type, movieId, userId, () => dispatch('REMOVE_MOVIE', { type: type + 'Movies', movieId: movieId }));
     };
 
-    let listItems = <p>Please wait</p>;
+    let listItems = <p style={{textAlign: 'center'}}>{`No ${type} movies yet`}</p>;
     if (fetchedMovies.length) {
         listItems = fetchedMovies.map(movie => {
             return (
