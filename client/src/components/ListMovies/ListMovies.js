@@ -8,10 +8,11 @@ import SmallMovie from '../SmallMovie/SmallMovie';
 const ListMovies = ({ movies, type, userId }) => {
     const dispatch = useStore()[1];
     const [fetchedMovies, setFetchedMovies] = useState([]);
-
     useEffect(() => {
         if (movies.length) {
             fetchSpecificMovies(movies, data => setFetchedMovies(data));
+        } else {
+            setFetchedMovies([]);
         }
     }, [movies]);
 
