@@ -1,5 +1,5 @@
 export const fetchUserMovies = (userId, cb) => {
-    fetch(`https://movie-swap.web.app/api/get-movies/${userId}`)
+    fetch(`https://movie-swap.herokuapp.com/api/get-movies/${userId}`)
         .then(res => {
             return res.json();
         })

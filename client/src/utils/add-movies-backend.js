@@ -1,11 +1,11 @@
 export const postMovie = (type, movie, user, cb) => {
     let url;
     if (type === 'disliked') {
-        url = 'https://movie-swap.web.app/api/add-disliked-movie/';
+        url = 'https://movie-swap.herokuapp.com/api/add-disliked-movie/';
     } else if (type === 'liked') {
-        url = 'https://movie-swap.web.app/api/add-liked-movie/';
+        url = 'https://movie-swap.herokuapp.com/api/add-liked-movie/';
     } else if (type === 'seen') {
-        url = 'https://movie-swap.web.app/api/add-seen-movie/';
+        url = 'https://movie-swap.herokuapp.com/api/add-seen-movie/';
     } else {
         throw new Error("Wrong 'type' argument in add-movies-backend.js");
     }

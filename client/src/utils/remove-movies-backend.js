@@ -1,11 +1,11 @@
 export const removeMovie = (type, movie, user, cb) => {
     let url;
     if (type === 'disliked') {
-        url = 'https://movie-swap.web.app/api/remove-disliked-movie/';
+        url = 'https://movie-swap.herokuapp.com/api/remove-disliked-movie/';
     } else if (type === 'liked') {
-        url = 'https://movie-swap.web.app/api/remove-liked-movie/';
+        url = 'https://movie-swap.herokuapp.com/api/remove-liked-movie/';
     } else if (type === 'seen') {
-        url = 'https://movie-swap.web.app/api/remove-seen-movie/';
+        url = 'https://movie-swap.herokuapp.com/api/remove-seen-movie/';
     } else {
         throw new Error("Wrong 'type' argument in remove-movies-backend.js");
     }

@@ -44,7 +44,7 @@ const Login = () => {
     };
 
     const sendUserCredentials = (email, password) => {
-        const url = 'https://movie-swap.web.app/api/user-login';
+        const url = 'https://movie-swap.herokuapp.com/api/user-login';
         return fetch(url, {
             method: 'POST',
             headers: {
