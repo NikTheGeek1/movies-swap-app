@@ -37,7 +37,7 @@ const SignupForm = props => {
     };
 
     const sendUserCredentials = (name, email, password) => {
-        const url = 'http://localhost:5000/api/user-signup';
+        const url = 'https://movie-swap.web.app/api/user-signup';
         return fetch(url, {
             method: 'POST',
             headers: {
