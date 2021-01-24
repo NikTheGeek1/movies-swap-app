@@ -44,7 +44,7 @@ const Login = () => {
     };
 
     const sendUserCredentials = (email, password) => {
-        const url = 'http://localhost:5000/api/user-login';
+        const url = 'https://movie-swap.web.app/api/user-login';
         return fetch(url, {
             method: 'POST',
             headers: {
