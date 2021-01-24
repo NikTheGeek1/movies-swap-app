@@ -12,6 +12,6 @@ app.register_blueprint(user_movies_blueprint)
 app.register_blueprint(user_friends_blueprint)
 
 # setting CORS policy to allow only localhost:3000
-cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+cors = CORS(app, resources={r"/api/*": {"origins": "https://movie-swap.web.app"}})
 if __name__ == '__main__':
     app.run(debug=True)
