@@ -1,5 +1,5 @@
 export const fetchFriends = (userId, cb) => {
-    fetch(`http://localhost:5000/api/get-friends/${userId}`).then(res => res.json())
+    fetch(`https://movie-swap.web.app/api/get-friends/${userId}`).then(res => res.json())
         .then(data => {
             cb(data);
         })
@@ -7,7 +7,7 @@ export const fetchFriends = (userId, cb) => {
 };
 
 export const addFriend = (friendEmail, userId, cb) => {
-    fetch(`http://localhost:5000/api/add-friend`, {
+    fetch(`https://movie-swap.web.app/api/add-friend`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -22,7 +22,7 @@ export const addFriend = (friendEmail, userId, cb) => {
 };
 
 export const removeFriend = (friendId, userId, cb) => {
-    fetch(`http://localhost:5000/api/remove-friend`, {
+    fetch(`https://movie-swap.web.app/api/remove-friend`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ export const removeFriend = (friendId, userId, cb) => {
 
 
 export const fetchFriendWithMovies = (userId, friendId, cb) => {
-    fetch(`http://localhost:5000/api/get-friends/${userId}/${friendId}`).then(res => res.json())
+    fetch(`https://movie-swap.web.app/api/get-friends/${userId}/${friendId}`).then(res => res.json())
         .then(data => {
             cb(data);
         })

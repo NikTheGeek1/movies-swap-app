@@ -1,5 +1,5 @@
 export const fetchUserMovies = (userId, cb) => {
-    fetch(`http://localhost:5000/api/get-movies/${userId}`)
+    fetch(`https://movie-swap.web.app/api/get-movies/${userId}`)
         .then(res => {
             return res.json();
         })
